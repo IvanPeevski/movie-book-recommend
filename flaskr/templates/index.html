@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie-Book Recommender</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="page-container">
+    <div class="selection-container">
+      <h3>
+        👋
+        Hi! I will help you discover new books and movies based on your favorites!
+      </h3>
+      <h4>
+        Type in a favorite book and I will recommend a similar movie for you to watch... or the other way around!
+      </h4>
+      <div class="recommend-title">I wish to discover more...</div>
+      <div class="radio-wrapper">
+        <input type="radio" name="select" id="book" checked>
+        <input type="radio" name="select" id="movie">
+          <label for="book" class="option book">
+            <div class="dot"></div>
+             <span>Books 📖</span>
+             </label>
+          <label for="movie" class="option movie">
+            <div class="dot"></div>
+             <span>Movies 🎥</span>
+          </label>
+       </div>
+    </div>
+    <div class="search-container">
+      <div class="input-group">
+        <div class="input-group-addon" id="input-addon">Book 📖</div>
+        <input type="text" id="search-input" placeholder="Search for a book or movie...">
+        <div id="autocomplete-dropdown" class="autocomplete-items" closed="true">
+          <div class="autocomplete-results"></div>
+          <div class="attribution"></div>
+        </div>
+      </div>
+      <div class="checkbox-wrapper">
+        <div style="display: none;">
+          <input type="checkbox" id="include-adult" checked>
+          <label for="include-adult">Include R rated?</label>
+        </div>
+        <div>
+          <input type="checkbox" id="include-adaptations" checked>
+          <label for="include-adaptations">Include direct adaptations?</label>
+        </div>
+      </div>
+    </div>
+    <div class="results-container">
+      <div id="result-cards" class="result-cards">
+      </div>
+    </div>
+  </div>
+  <footer>
+    <p>Book data provided by <a href="https://books.google.com" target="_blank">Google Books</a>
+      This product uses the Google Books API but is not endorsed or certified by Google</p>
+    <p>Movie data provided by <a href="https://www.themoviedb.org" target="_blank">TMDB</a>.
+      This product uses the TMDB API but is not endorsed or certified by TMDB</p>
+  </footer>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
